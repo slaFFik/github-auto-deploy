@@ -2,7 +2,9 @@
 // Prevent some childish-hackish things
 if(!defined('GITHUB')) die;
 
-// for debug
+/**
+ *  Display variable content in a better way
+ */
 if(!function_exists('print_var')) {
     function print_var($var, $die = false){
         echo '<pre>';
