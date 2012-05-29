@@ -1,4 +1,6 @@
 <?php
+// Prevent some childish-hackish things
+if(!defined('GITHUB')) die;
 
 // for debug
 if(!function_exists('print_var')) {
