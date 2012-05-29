@@ -7,7 +7,7 @@ define('GITHUB', true);
 // now we can connect and manipulate data
 include(dirname(__FILE__) . '/helpers/debug.php');
 // get all the variables we may need in $config
-include(dirname(__FILE__) . '/helpers/debug.php');
+include(dirname(__FILE__) . '/helpers/config.php');
 
 /**
  *  Now lets do something different

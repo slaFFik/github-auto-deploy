@@ -7,7 +7,7 @@ Will be written in php. Wanna make it as simple as possible.
 Currently this repo will be used for testing only. So you will see a bunch of weird commits.
 
 [.....]
-[....]
+[.....]
 
 P.S. Dots above DO have the meaning.
 
