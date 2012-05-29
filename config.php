@@ -10,5 +10,5 @@ $config = array(
     // what branch should be take care of?
     'branch'        => 'master',
     // no trailing slash
-    'upload_path'   => dirname(__FILE__) . '/../gad'
+    'upload_path'   => dirname(__FILE__) . '/gad'
 );
