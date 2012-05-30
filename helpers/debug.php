@@ -6,7 +6,7 @@ if(!defined('GITHUB')) {
 }
 
 /**
- *  Create appropriate folders if they doesn't exists
+ *  Create appropriate folders if they don't exists
  */
 function create_folders($file){
     $path = dirname($file);
