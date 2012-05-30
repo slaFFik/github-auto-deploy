@@ -70,18 +70,20 @@ foreach($files['download'] as $download){
     // download
     $content = file_get_contents($download['url']);
     // upload
-    file_put_contents($download['url'], $content);
+    file_put_contents($download['path'], $content);
 }
 
 // delete files that were removed
-foreach ($files['remove'] as $remove) {
-    unlink($remove);
+if(isset($files['remove'])){
+    foreach ($files['remove'] as $remove) {
+        unlink($remove);
+    }
 }
 
 
 // Debug
-file_put_contents('./hook.txt', print_r($save,true));
+file_put_contents('./hook.txt', print_r($save, true));
 file_put_contents('./hook.txt', print_r($files,true), FILE_APPEND);
-file_put_contents('./hook.txt', print_r($data,true), FILE_APPEND);
+file_put_contents('./hook.txt', print_r($data, true), FILE_APPEND);
 
 ?>
