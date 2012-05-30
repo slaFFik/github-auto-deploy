@@ -10,7 +10,7 @@ if(!defined('GITHUB')) {
  */
 function create_folders($file){
     $path = dirname($file);
-    // recusion
+    // recursion
     if (!mkdir($path, 0755, true)) {
         file_put_contents('./hook.txt', 'Failed to create folders: ' . $path);
     }
@@ -31,5 +31,3 @@ if(!function_exists('print_var')) {
             die;
     }
 }
-
-?>
