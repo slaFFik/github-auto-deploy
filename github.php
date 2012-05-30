@@ -28,9 +28,9 @@ $save  = new Stdclass;
 
 // get the list of all files we need to upload
 foreach($data->commits as $commit){
-    $added = array_merge($added, $commit->added);
+    $added    = array_merge($added, $commit->added);
     $modified = array_merge($modified, $commit->modified);
-    $removed = array_merge($removed, $commit->removed);
+    $removed  = array_merge($removed, $commit->removed);
 }
 
 $save->added    = array_unique($added);
@@ -49,7 +49,6 @@ foreach ($save->modified as $i => $modify) {
     $files['download'][$i]['url']  = 'https://raw.github.com/' . $config['username'] . '/' . $config['repo'] . '/' . $config['branch'] . '/' . $modify;
     $files['download'][$i]['path'] = $config['upload_path'] . '/' . $modify;
 }
-$files['download'] = array_unique($files['download']);
 foreach ($save->removed as $remove) {
     $files['remove'][] = $config['upload_path'] . '/' . $remove;
 }
