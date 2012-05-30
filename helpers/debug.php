@@ -10,6 +10,9 @@ if(!defined('GITHUB')) {
  */
 function create_folders($file){
     $path = dirname($file);
+    if(is_dir($path))
+        return;
+
     // recursion
     if (!mkdir($path, 0755, true)) {
         file_put_contents('./log.txt', 'Failed to create folders: ' . $path);
