@@ -1,7 +1,7 @@
 <?php
 // Prevent some childish-hackish things
 if(!isset($_POST['payload']) || empty($_POST['payload'])) {
-    file_put_contents('./hook.txt', 'No payload content');
+    file_put_contents('./log.txt', 'No payload content');
     die;
 };
 
@@ -19,7 +19,7 @@ include(dirname(__FILE__) . '/config.php');
 
 // currently we can process only public repositories. Private will die.
 if($config['repo_type'] !== 'public') {
-    file_put_contents('./hook.txt', 'Repo is private');
+    file_put_contents('./log.txt', 'Repo is private');
     die;
 }
 
@@ -28,7 +28,7 @@ $data = json_decode($_POST['payload']);
 
 // if commit data is empty - exit
 if(empty($data->commits) || !is_array($data->commits)) {
-    file_put_contents('./hook.txt', 'Commits data is empty');
+    file_put_contents('./log.txt', 'Commits data is empty');
     die;
 }
 
@@ -84,8 +84,8 @@ if(isset($files['remove'])){
 
 
 // Debug
-file_put_contents('./hook.txt', print_r($save, true));
-file_put_contents('./hook.txt', print_r($files,true), FILE_APPEND);
-file_put_contents('./hook.txt', print_r($data, true), FILE_APPEND);
+file_put_contents('./log.txt', print_r($save, true));
+file_put_contents('./log.txt', print_r($files,true), FILE_APPEND);
+file_put_contents('./log.txt', print_r($data, true), FILE_APPEND);
 
 ?>
