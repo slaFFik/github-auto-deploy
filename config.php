@@ -15,3 +15,5 @@ $config = array(
     // no trailing slash
     'upload_path'   => dirname(__FILE__) . '/gad'
 );
+
+?>

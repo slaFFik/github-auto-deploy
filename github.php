@@ -50,15 +50,18 @@ $save->removed  = array_unique($removed);
  *  Create raw links to the sources of that files, like:
  *      https://raw.github.com/slaFFik/github-auto-deploy/master/config.php
  */
-foreach ($save->added as $i => $add) {
+$i = 0;
+foreach ($save->added as $add) {
     $files['download'][$i]['url']  = 'https://raw.github.com/' . $config['username'] . '/' . $config['repo'] . '/' . $config['branch'] . '/' . $add;
     $files['download'][$i]['path'] = $config['upload_path'] . '/' . $add;
     create_folders($files['download'][$i]['path']);
+    $i++;
 }
-foreach ($save->modified as $i => $modify) {
+foreach ($save->modified as $modify) {
     $files['download'][$i]['url']  = 'https://raw.github.com/' . $config['username'] . '/' . $config['repo'] . '/' . $config['branch'] . '/' . $modify;
     $files['download'][$i]['path'] = $config['upload_path'] . '/' . $modify;
     create_folders($files['download'][$i]['path']);
+    $i++;
 }
 foreach ($save->removed as $remove) {
     $files['remove'][] = $config['upload_path'] . '/' . $remove;

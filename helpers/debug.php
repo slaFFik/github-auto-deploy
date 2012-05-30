@@ -31,3 +31,5 @@ if(!function_exists('print_var')) {
             die;
     }
 }
+
+?>
