@@ -1,7 +1,7 @@
 <?php
 // Prevent some childish-hackish things
 if(!isset($_POST['payload']) || empty($_POST['payload'])) {
-    file_put_contents('./hook.txt', 'No payload content')
+    file_put_contents('./hook.txt', 'No payload content');
     die;
 };
 
