@@ -6,6 +6,16 @@ if(!defined('GITHUB')) {
 }
 
 /**
+ *  Create appropriate folders if they doesn't exists
+ */
+function create_folders($file){
+    $path = dirname($file);
+    if (!mkdir($path, 0, true)) {
+        file_put_contents('./hook.txt', 'Failed to create folders: ' . $path);
+    }
+}
+
+/**
  *  Display variable content in a better way
  */
 if(!function_exists('print_var')) {

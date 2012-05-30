@@ -53,10 +53,12 @@ $save->removed  = array_unique($removed);
 foreach ($save->added as $i => $add) {
     $files['download'][$i]['url']  = 'https://raw.github.com/' . $config['username'] . '/' . $config['repo'] . '/' . $config['branch'] . '/' . $add;
     $files['download'][$i]['path'] = $config['upload_path'] . '/' . $add;
+    create_folders($files['download'][$i]['path']);
 }
 foreach ($save->modified as $i => $modify) {
     $files['download'][$i]['url']  = 'https://raw.github.com/' . $config['username'] . '/' . $config['repo'] . '/' . $config['branch'] . '/' . $modify;
     $files['download'][$i]['path'] = $config['upload_path'] . '/' . $modify;
+    create_folders($files['download'][$i]['path']);
 }
 foreach ($save->removed as $remove) {
     $files['remove'][] = $config['upload_path'] . '/' . $remove;
@@ -76,7 +78,7 @@ foreach($files['download'] as $download){
 // delete files that were removed
 if(isset($files['remove'])){
     foreach ($files['remove'] as $remove) {
-        unlink($remove);
+        @unlink($remove);
     }
 }
 
