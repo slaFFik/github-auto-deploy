@@ -10,6 +10,7 @@ if(!defined('GITHUB')) {
  */
 function create_folders($file){
     $path = dirname($file);
+    // recusion
     if (!mkdir($path, 0, true)) {
         file_put_contents('./hook.txt', 'Failed to create folders: ' . $path);
     }
