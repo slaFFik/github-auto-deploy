@@ -1,6 +1,9 @@
 <?php
 // Prevent some childish-hackish things
-if(!defined('GITHUB')) die;
+if(!defined('GITHUB')) {
+    file_put_contents('./hook.txt', 'Direct access to debug.php is not allowed');
+    die;
+}
 
 /**
  *  Display variable content in a better way

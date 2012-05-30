@@ -1,6 +1,9 @@
 <?php
 // Prevent some childish-hackish things
-if(!isset($_POST['payload']) || empty($_POST['payload'])) file_put_contents('./hook.txt', 'No payload content');
+if(!isset($_POST['payload']) || empty($_POST['payload'])) {
+    file_put_contents('./hook.txt', 'No payload content')
+    die;
+};
 
 define('GITHUB', true);
 
@@ -15,13 +18,19 @@ include(dirname(__FILE__) . '/config.php');
  */
 
 // currently we can process only public repositories. Private will die.
-if($config['repo_type'] !== 'public') die;
+if($config['repo_type'] !== 'public') {
+    file_put_contents('./hook.txt', 'Repo is private');
+    die;
+}
 
-// We receive json object - decode it
+// We received json object - decode it
 $data = json_decode($_POST['payload']);
 
 // if commit data is empty - exit
-if(empty($data->commits) || !is_array($data->commits)) file_put_contents('./hook.txt', 'Commits data is empty');
+if(empty($data->commits) || !is_array($data->commits)) {
+    file_put_contents('./hook.txt', 'Commits data is empty');
+    die;
+}
 
 $added = $removed = $modified = array();
 $save  = new Stdclass;

@@ -1,6 +1,9 @@
 <?php
 // Prevent some childish-hackish things
-if(!defined('GITHUB')) file_put_contents('./hook.txt', 'Direct access to config.php is not allowed');
+if(!defined('GITHUB')) {
+    file_put_contents('./hook.txt', 'Direct access to config.php is not allowed');
+    die;
+}
 
 $config = array(
     'username'      => 'slaFFik',
