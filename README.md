@@ -30,6 +30,8 @@ Currently this deployer works for public repositories only. However, private rep
 
 Please take care of deploy folder privacy. Although it doesn't contain any sensitive information - but who knows?..
 
+Some debug info after each push to a repo is saved into `log.txt` file. But the content is overwritten every time the push is made. Remember this when debugging things.
+
 Plans
 -----
 
