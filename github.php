@@ -14,7 +14,6 @@ include(dirname(__FILE__) . '/config.php');
 
 /**
  *  Now lets do something different
- *  Below is the so called pseudo-code
  */
 
 // currently we can process only public repositories. Private will die.
