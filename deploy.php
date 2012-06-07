@@ -71,7 +71,7 @@ class GAD{
         // the main deploy itself
         $this->deploy();
 
-        GAD::log('note', 'Deploy finished');
+        GAD::log('note', 'Deploy finished'."\r\n".'--------------------');
     }
 
     /**
