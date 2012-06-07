@@ -43,7 +43,7 @@ class GAD{
     // list of files to process on a server
     public $files  = array();
     // list of allowed IPs for a deploy. Defaults are Github IPs
-    public $ips    = array();
+    public $ips    = array('207.97.227.253','50.57.128.197','108.171.174.178');
 
     /**
      *  Now time for a deploy - get the POST data
@@ -56,7 +56,7 @@ class GAD{
 
         // check that we have rights to deploy - IP check
         if (!in_array($_SERVER['REMOTE_ADDR'], $this->ips)) {
-            GAD::log('error', 'Attempt to make a deploy from a not allowe IP: ' . $_SERVER['REMOTE_ADDR'], true);
+            GAD::log('error', 'Attempt to make a deploy from a not allowed IP: ' . $_SERVER['REMOTE_ADDR'], true);
         }
 
         GAD::log('note', 'Deploy started');
