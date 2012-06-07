@@ -201,7 +201,7 @@ class GAD{
     }
 
     /**
-     *  Save to the log all events connected with deployment process
+     *  Save to the log all events connected with the deployment process
      */
     static function log($status, $message, $die = false){
         file_put_contents(GAD::LOG_FILE,
