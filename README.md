@@ -10,6 +10,8 @@ Only modified files will be saved (added/modified/deleted) - not the whole proje
 
 On every deploy the changed files will be overwritten.
 
+You can specify in a class files that should be excluded from a deploy. This means they will **NOT** be uploaded to your server even if pushed to a repository.
+
 How to use it
 -------------
 
