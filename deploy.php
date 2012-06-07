@@ -38,16 +38,25 @@ if (!defined('GH_UPLOAD_PATH'))
 class GAD{
     // where to save all deploy results
     const LOG_FILE = './log.txt';
+
     // what we received from Github
     public $data   = false;
+
     // list of files to process on a server
     public $files  = array();
+
     // list of allowed IPs for a deploy. Defaults are Github IPs
     public $ips    = array(
                         '207.97.227.253',
                         '50.57.128.197',
                         '108.171.174.178'
                     );
+
+    // list of files you want to exclude from a deploy
+    // this path should be relative to a GH_UPLOAD_PATH, w/out opening slash
+    public $ex_files = array(
+                            'test.txt'
+                        );
 
     /**
      *  Now time for a deploy - get the POST data
@@ -107,6 +116,9 @@ class GAD{
          */
         $i = 0;
         foreach ($save->added as $add) {
+            // exclude those files we don't need to be synced with a repo
+            if ($this->excluding_file($add)) continue;
+
             $files['download'][$i]['name'] = $add;
             $files['download'][$i]['url']  = 'https://raw.github.com/' . GH_USERNAME . '/' . GH_REPO . '/' . GH_BRANCH . '/' . $add;
             $files['download'][$i]['path'] = GH_UPLOAD_PATH . '/' . $add;
@@ -114,6 +126,9 @@ class GAD{
             $i++;
         }
         foreach ($save->modified as $modify) {
+            // exclude those files we don't need to be synced with a repo
+            if ($this->excluding_file($modify)) continue;
+
             $files['download'][$i]['name'] = $modify;
             $files['download'][$i]['url']  = 'https://raw.github.com/' . GH_USERNAME . '/' . GH_REPO . '/' . GH_BRANCH . '/' . $modify;
             $files['download'][$i]['path'] = GH_UPLOAD_PATH . '/' . $modify;
@@ -121,12 +136,26 @@ class GAD{
             $i++;
         }
         foreach ($save->removed as $remove) {
+            // exclude those files we don't need to be synced with a repo
+            if ($this->excluding_file($remove)) continue;
+
             $files['remove'][$i]['name'] = $remove;
             $files['remove'][$i]['path'] = GH_UPLOAD_PATH . '/' . $remove;
             $i++;
         }
 
         return $files;
+    }
+
+    /**
+     *  Get the file name, if it exists in a exlcude list - omit it
+     *      If returned true - omit.
+     */
+    protected function excluding_file($file){
+        if(in_array($file, $this->ex_files))
+            return true;
+
+        return false;
     }
 
     /**
