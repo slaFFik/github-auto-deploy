@@ -43,7 +43,11 @@ class GAD{
     // list of files to process on a server
     public $files  = array();
     // list of allowed IPs for a deploy. Defaults are Github IPs
-    public $ips    = array('207.97.227.253','50.57.128.197','108.171.174.178');
+    public $ips    = array(
+                        '207.97.227.253',
+                        '50.57.128.197',
+                        '108.171.174.178'
+                    );
 
     /**
      *  Now time for a deploy - get the POST data
