@@ -31,9 +31,6 @@ if (!defined('GH_BRANCH'))
 // Where you want to deploy the github project files. No trailing slash
 if (!defined('GH_UPLOAD_PATH'))
     define('GH_UPLOAD_PATH', dirname(__FILE__) . '/project');
-// Github makes requests only from specific IPs - enable them
-//if (!defined('GH_IPS'))
-//    define('GH_IPS', array('207.97.227.253','50.57.128.197','108.171.174.178'));
 
 /**
  *  Main class itself where all the magic happens
@@ -45,14 +42,21 @@ class GAD{
     public $data   = false;
     // list of files to process on a server
     public $files  = array();
+    // list of allowed IPs for a deploy. Defaults are Github IPs
+    public $ips    = array();
 
     /**
      *  Now time for a deploy - get the POST data
      */
     function __construct($payload){
         // currently we can process only public repositories. Private will die.
-        if(GH_REPO_TYPE !== 'public') {
+        if (GH_REPO_TYPE !== 'public') {
             GAD::log('error', 'Repo is private', true);
+        }
+
+        // check that we have rights to deploy - IP check
+        if (!in_array($_SERVER['REMOTE_ADDR'], $this->ips) {
+            GAD::log('error', 'Attempt to make a deploy from a not allowe IP: ' . $_SERVER['REMOTE_ADDR'], true);
         }
 
         GAD::log('note', 'Deploy started');
