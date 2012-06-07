@@ -55,7 +55,7 @@ class GAD{
         }
 
         // check that we have rights to deploy - IP check
-        if (!in_array($_SERVER['REMOTE_ADDR'], $this->ips) {
+        if (!in_array($_SERVER['REMOTE_ADDR'], $this->ips)) {
             GAD::log('error', 'Attempt to make a deploy from a not allowe IP: ' . $_SERVER['REMOTE_ADDR'], true);
         }
 
