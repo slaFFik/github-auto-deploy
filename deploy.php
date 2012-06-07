@@ -63,9 +63,7 @@ class GAD{
      *  All files in that folders will be ignored and not deployed too
      *  This path should be relative to a GH_UPLOAD_PATH, without facing and trailing slashes
      */
-    public $ex_dirs  = array(
-                            'test'
-                        );
+    public $ex_dirs  = array();
 
     /**
      *  Now time for a deploy - get the POST data
