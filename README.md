@@ -12,7 +12,7 @@ On every deploy the changed files will be overwritten.
 
 You can specify in a GAD class the array of files that should be excluded from a deploy. This means they will **NOT** be uploaded to your server even if pushed to a repository.
 
-You can also specify of folders, which will be excluded too. This means all files in that folders will be ignored and not synced while deploying.
+You can also specify the arrat of folders, which will be excluded too. This means all files in that folders will be ignored and not synced while deploying.
 
 How to use it
 -------------
