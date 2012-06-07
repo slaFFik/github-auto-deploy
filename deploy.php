@@ -23,14 +23,17 @@ if (!defined('GH_REPO'))
     define('GH_REPO', 'github-auto-deploy');
 //Type of the repository. Possible values: public|private
 // Currenty supporting only public
-if (!defined('GH_REPO'))
-    define('GH_REPO', 'public');
+if (!defined('GH_REPO_TYPE'))
+    define('GH_REPO_TYPE', 'public');
 // What branch should we take care of? Only one can be used
 if (!defined('GH_BRANCH'))
     define('GH_BRANCH', 'master');
 // Where you want to deploy the github project files. No trailing slash
 if (!defined('GH_UPLOAD_PATH'))
     define('GH_UPLOAD_PATH', dirname(__FILE__) . '/project');
+// Github makes requests only from specific IPs - enable them
+//if (!defined('GH_IPS'))
+//    define('GH_IPS', array('207.97.227.253','50.57.128.197','108.171.174.178'));
 
 /**
  *  Main class itself where all the magic happens
@@ -46,7 +49,7 @@ class GAD{
     /**
      *  Now time for a deploy - get the POST data
      */
-    protected function __construct($payload){
+    function __construct($payload){
         // currently we can process only public repositories. Private will die.
         if(GH_REPO_TYPE !== 'public') {
             GAD::log('error', 'Repo is private', true);
