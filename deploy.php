@@ -54,9 +54,7 @@ class GAD{
 
     // list of files you want to exclude from a deploy
     // this path should be relative to a GH_UPLOAD_PATH, w/out opening slash
-    public $ex_files = array(
-                            'test.txt'
-                        );
+    public $ex_files = array();
 
     /**
      *  Now time for a deploy - get the POST data
