@@ -54,17 +54,17 @@ class GAD{
 
     /**
      *  List of files you want to exclude from a deploy
-     *  This path should be relative to a GH_UPLOAD_PATH, without opening slash
+     *  This path should be relative to a GH_UPLOAD_PATH, without facing and trailing slashes
      */
     public $ex_files = array();
 
     /**
      *  List of folders you want to exclude from a deploy
      *  All files in that folders will be ignored and not deployed too
-     *  This path should be relative to a GH_UPLOAD_PATH, with opening and no trailing slashes
+     *  This path should be relative to a GH_UPLOAD_PATH, without facing and trailing slashes
      */
     public $ex_dirs  = array(
-                            '/test'
+                            'test'
                         );
 
     /**
