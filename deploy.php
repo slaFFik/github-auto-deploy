@@ -52,9 +52,20 @@ class GAD{
                         '108.171.174.178'
                     );
 
-    // list of files you want to exclude from a deploy
-    // this path should be relative to a GH_UPLOAD_PATH, w/out opening slash
+    /**
+     *  List of files you want to exclude from a deploy
+     *  This path should be relative to a GH_UPLOAD_PATH, without opening slash
+     */
     public $ex_files = array();
+
+    /**
+     *  List of folders you want to exclude from a deploy
+     *  All files in that folders will be ignored and not deployed too
+     *  This path should be relative to a GH_UPLOAD_PATH, with opening and no trailing slashes
+     */
+    public $ex_dirs  = array(
+                            '/test'
+                        );
 
     /**
      *  Now time for a deploy - get the POST data
@@ -146,11 +157,11 @@ class GAD{
     }
 
     /**
-     *  Get the file name, if it exists in a exlcude list - omit it
+     *  Check that current file is not in an exlcude list
      *      If returned true - omit.
      */
     protected function excluding_file($file){
-        if(in_array($file, $this->ex_files))
+        if (in_array($file, $this->ex_files) || in_array(dirname($file), $this->ex_dirs))
             return true;
 
         return false;

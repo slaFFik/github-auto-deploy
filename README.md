@@ -43,4 +43,4 @@ Plans
 -----
 
 1. Support private repos
-2. Exclude files/folders from a deploy
+2. Exclude folders from a deploy
