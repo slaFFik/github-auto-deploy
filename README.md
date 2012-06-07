@@ -33,6 +33,7 @@ Some debug info after each push to a repo is saved into `log.txt` file. All the 
 `
 2012.06.07@23:22:16 - NOTE - Deploy started
 2012.06.07@23:22:16 - SUCCESS - Modified/added files: deploy.php
+2012.06.07@23:22:16 - SUCCESS - Removed files: readme.txt
 2012.06.07@23:22:16 - NOTE - Deploy finished
 `
 
