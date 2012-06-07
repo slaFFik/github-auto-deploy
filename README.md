@@ -30,15 +30,10 @@ Currently this deployer works for public repositories only. However, private rep
 
 Some debug info after each push to a repo is saved into `log.txt` file. All the logs are incremented. Here is the example:
 
-`
-2012.06.07@23:22:16 - NOTE - Deploy started
-
-2012.06.07@23:22:16 - SUCCESS - Modified/added files: deploy.php
-
-2012.06.07@23:22:16 - SUCCESS - Removed files: readme.txt
-
-2012.06.07@23:22:16 - NOTE - Deploy finished
-`
+    2012.06.07@23:22:16 - NOTE - Deploy started
+    2012.06.07@23:22:16 - SUCCESS - Modified/added files: deploy.php
+    2012.06.07@23:22:16 - SUCCESS - Removed files: readme.txt
+    2012.06.07@23:22:16 - NOTE - Deploy finished
 
 Please remember, that this file will become huge if you make lots of commits, so clear it from time to time.
 
