@@ -4,7 +4,7 @@ Github Auto Deploy
 What it does
 ------------
 
-On every push to a specified in branch your server will get the latest version of a project.
+On every push to a specified branch your server will get the latest version of a project.
 
 Only modified files will be saved (added/modified/deleted) - not the whole project. So deploy is really quick.
 
